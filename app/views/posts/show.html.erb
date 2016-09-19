@@ -1,0 +1,17 @@
+<ul class="breadcrumbs">
+  <li>
+    <%= link_to "Posts", root_path %>
+  </li>
+  <li>
+    <%= @post.display_title %>
+  </li>
+</ul>
+<h1><%= @post.display_title %></h1>
+<%= image_tag(@post.image.url) %>
+<% unless @post.caption.nil? || @post.caption.empty? %>
+  <p>
+    <strong>Caption:</strong>
+    <%= @post.caption %>
+  </p>
+<% end %>
+

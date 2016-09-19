@@ -1,0 +1,30 @@
+<h1> Posts </h1>
+<%= link_to "New Post", new_post_path, class: "button" %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Thumbnail</th>
+      <th>Caption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to post.display_title, post_path(post) %>
+        </td>
+        <td>
+          <%= link_to post_path(post) do %>
+            <%= image_tag post.image.url, width: "100px" %>
+          <% end %>
+        </td>
+        <td>
+          <% unless post.caption.nil? || post.caption.empty? %>
+            <%= post.caption %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
