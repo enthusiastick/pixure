@@ -7,6 +7,7 @@
   </li>
 </ul>
 <h1><%= @post.display_title %></h1>
+<p><%= link_to "Edit", edit_post_path(@post), class: "button" %></p>
 <%= image_tag(@post.image.url) %>
 <% unless @post.caption.nil? || @post.caption.empty? %>
   <p>

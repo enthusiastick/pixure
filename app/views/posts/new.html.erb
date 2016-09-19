@@ -7,17 +7,4 @@
   </li>
 </ul>
 <h1> New Post </h1>
-<%= form_for @post do |f| %>
-  <fieldset>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </fieldset>
-  <fieldset>
-    <%= f.file_field :image %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :caption %>
-    <%= f.text_area :caption %>
-  </fieldset>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>

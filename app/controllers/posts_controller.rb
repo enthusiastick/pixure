@@ -6,9 +6,13 @@ class PostsController < ApplicationController
       flash[:success] = "Post created successfully."
       redirect_to post_path(@post)
     else
-      flash[:alert] = "There was a problem creating this post."
+      flash[:alert] = "Error: there was a problem creating this post."
       render :new
     end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def index
@@ -21,6 +25,17 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = "Post updated successfully."
+      redirect_to post_path(@post)
+    else
+      flash[:alert] = "Error: there was a problem updating this post."
+      render :edit
+    end
   end
 
   private

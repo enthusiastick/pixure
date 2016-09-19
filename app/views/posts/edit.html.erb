@@ -1,0 +1,13 @@
+<ul class="breadcrumbs">
+  <li>
+    <%= link_to "Posts", root_path %>
+  </li>
+  <li>
+    <%= link_to @post.display_title, post_path(@post) %>
+  </li>
+  <li>
+    Edit
+  </li>
+</ul>
+<h1> Edit <%= @post.display_title %> </h1>
+<%= render "form" %>
